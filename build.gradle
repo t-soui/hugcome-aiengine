@@ -1,0 +1,13 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.example' // あなたのグループID
+            artifactId = 'aiengine' // あなたのアーティファクトID
+            version = '3.0.0' // バージョン
+
+            artifact(file('aiengine-3.0.0-release-20240307162130.aar')) // AARファイルのパス
+        }
+    }
+}
