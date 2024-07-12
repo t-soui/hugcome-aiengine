@@ -8,6 +8,13 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
@@ -38,7 +45,7 @@ publishing {
         aar(MavenPublication) {
             groupId = 'com.github.t-soui'
             artifactId = 'hugcome-aiengine'
-            version = '3.0.9'
+            version = '3.0.10'
             artifact("aiengine-3.0.0-release-20240307162130.aar")
         }
     }
