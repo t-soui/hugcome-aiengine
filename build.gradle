@@ -26,7 +26,7 @@ publishing {
             artifactId = 'hugcome-aiengine' // あなたのアーティファクトIDに変更
             version = '3.0.0' // バージョン
 
-            artifact("$buildDir/aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパス
+            artifact("aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパス
         }
     }
     repositories {
