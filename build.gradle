@@ -22,20 +22,21 @@ android {
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.example' // 変更: あなたのグループID
-            artifactId = 'aiengine' // 変更: あなたのアーティファクトID
+            groupId = 'com.github.t-soui' // あなたのグループIDに変更
+            artifactId = 'hugcome-aiengine' // あなたのアーティファクトIDに変更
             version = '3.0.0' // バージョン
 
-            artifact("$buildDir/outputs/aar/aiengine-release.aar") // AARファイルのパス
+            artifact("$buildDir/aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパス
         }
     }
     repositories {
         maven {
-            url = uri("https://maven.pkg.github.com/USERNAME/REPOSITORY")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
-            }
+            url = uri("https://maven.pkg.github.com/t-soui/hugcome-aiengine")
+            // パブリックリポジトリの場合、以下の認証情報は不要です
+            // credentials {
+            //     username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            //     password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+            // }
         }
     }
 }
