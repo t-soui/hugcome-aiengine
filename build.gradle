@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0'
+    }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
@@ -26,7 +36,7 @@ publishing {
             artifactId = 'hugcome-aiengine' // あなたのアーティファクトIDに変更
             version = '3.0.0' // バージョン
 
-            artifact("aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパス
+            artifact("aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパスを修正
         }
     }
     repositories {
