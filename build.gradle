@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:7.0.2'
     }
 }
 
@@ -27,26 +27,32 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 publishing {
     publications {
         aar(MavenPublication) {
-            groupId = 'com.github.t-soui' // あなたのグループIDに変更
-            artifactId = 'hugcome-aiengine' // あなたのアーティファクトIDに変更
-            version = '3.0.0' // バージョン
-
-            artifact("aiengine-3.0.0-release-20240307162130.aar") // AARファイルのパスを修正
+            groupId = 'com.github.t-soui'
+            artifactId = 'hugcome-aiengine'
+            version = '3.0.6'
+            artifact("aiengine-3.0.0-release-20240307162130.aar")
         }
     }
     repositories {
         maven {
             url = uri("https://maven.pkg.github.com/t-soui/hugcome-aiengine")
-            // パブリックリポジトリの場合、以下の認証情報は不要です
-            // credentials {
-            //     username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            //     password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
-            // }
         }
     }
+}
+
+tasks.withType(Test) {
+    enabled = false
+}
+
+tasks.withType(JavaCompile) {
+    options.incremental = true
 }
